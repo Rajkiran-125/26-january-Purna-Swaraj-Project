@@ -1,0 +1,31 @@
+{% load static %}
+{% include 'header.html' %}
+
+{% block content %}
+
+<link rel="stylesheet" href="static/css/account.css">
+
+<!-- partial:index.partial.html -->
+<div id="login-form-wrap">
+  <h2>Create Post</h2><br>
+  <form id="login-form" enctype="multipart/form-data" method="post">
+    {% csrf_token %}
+    <p>
+      {% comment %} <input type="text" id="username" name="username" placeholder="Username" required><i class="validation"><span></span><span></span></i> {% endcomment %}
+      {{form.text}}
+    </p>
+    <p>
+      {{form.image}}
+    </p>
+    <p>
+    <input type="submit" >
+    </p>
+  </form>
+  <br>
+  <br>
+
+
+
+{% endblock %}
+
+{% comment %} {% include 'footer.html' %} {% endcomment %}

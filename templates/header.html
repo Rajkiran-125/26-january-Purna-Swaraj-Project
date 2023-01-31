@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <title>Purna Swaraj</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Additional CSS Files -->
+  <link rel="stylesheet" href="static/css/fontawesome.css">
+  <link rel="stylesheet" href="static/css/templatemo-grad-school.css">
+  <link rel="stylesheet" href="static/css/owl.css">
+  <link rel="stylesheet" href="static/css/lightbox.css">
+  <link rel="stylesheet" href="static/css/chat.css">
+  <link rel="stylesheet" href="static/css/typing.css">
+
+
+  <!-- fontawsome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="static/images/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="static/images/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="static/images/favicon/favicon-16x16.png">
+  <link rel="manifest" href="static/images/favicon/site.webmanifest">
+
+  <!--  facebook comment and like button -->
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v15.0"
+    nonce="cRlRYYYx"></script>
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v15.0"
+    nonce="Q6EgmYzs"></script>
+
+</head>
+
+<body>
+
+
+
+  <!--header-->
+  <header class="main-header clearfix" role="header">
+    <div class="logo">
+      <a href="/"><img src="static/images/logo1.png" alt=""></a>
+    </div>
+    <a href="#menu" class="menu-link"><i class="fa fa-bars"></i></a>
+    <nav id="menu" class="main-nav" role="navigation">
+      <ul class="main-menu">
+        <li><a href="/">Home</a></li>
+        <li><a href="blog">Blog</a></li>
+        <li><a href="journey">Journey</a></li>
+        <li><a href="dashboard">Dashboard</a></li>
+        {% if user.is_authenticated %}
+        <li><a href="logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
+        <li><a href="profile"><i class="fa-solid fa-user"></i> {{request.user}}</a></li>
+        {% else %}
+        <li class="user"><a href="login" class="user">Login</a></li>
+        {% endif %}
+      </ul>
+    </nav>
+  </header>
+
+
+  {% block content %}
+
+  {% endblock %}

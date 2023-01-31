@@ -1,0 +1,54 @@
+{% load static %}
+
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,600;1,300&display=swap"
+    rel="stylesheet">
+<link rel="stylesheet" href="static/css/chat.css">
+<link rel="stylesheet" href="static/css/typing.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<div>
+    <div class="chatbox">
+        <div class="chatbox__support">
+            <div class="chatbox__header">
+                <div class="chatbox__image--header">
+                    <img src="static/images/India flag.png" alt="image">
+                </div>
+                <div class="chatbox__content--header">
+                    <h4 class="chatbox__heading--header">Chat support</h4>
+                    <p class="chatbox__description--header">Freedom is not free until it gives equal rights to all.</p>
+                </div>
+            </div>
+            <div class="chatbox__messages">
+                <div id="mychatbox">
+                    <h5 id="chat-timestamp"></h5>
+                    <p id="botStarterMessage" class="botText"><span>Loading...</span></p>
+                </div>
+            </div>
+            <div class="chatbox__footer">
+                <!-- <img src="static/images/icons/emojis.svg" style="color: blue;" alt="">
+                <img src="static/images/icons/microphone.svg" alt=""> -->
+
+                <div id="userInput">
+                    <input id="textInput" class="input-box" type="text" name="msg" placeholder="JAI HIND">
+                    <p></p>
+                </div>
+
+                <i id="chat-icon" style="color:green ;" class="fa fa-fw fa-send" onclick="sendButton()"></i>
+            </div>
+        </div>
+        <div id="chat-bar-bottom">
+            <p></p>
+        </div>
+        <div class="chatbox__button">
+            <button>button</button>
+        </div>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="static/js/Chat.js"></script>
+<script src="static/js/chatapp.js"></script>
+
+{% block content %}
+
+{% endblock %}

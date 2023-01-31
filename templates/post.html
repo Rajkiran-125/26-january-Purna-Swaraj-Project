@@ -1,0 +1,130 @@
+{% load static %}
+{% include 'header.html' %}
+
+{% block content %}
+
+<link rel="stylesheet" href="static/css/post.css" />
+
+
+
+    
+    <main>
+        <div class="p-container">
+            <div class="left">
+                <a class="profile">
+                    
+                    <div class="handle">
+                        <br>
+                        {% if user.is_authenticated %}
+                        <h4>{{request.user}}</h4>
+                        {% else %}
+                        <h4></h4>
+                        {% endif %}
+                        <br>
+                    </div>
+                </a>
+                <div class="sidebar">
+                    <a class="menu-item " href="post">
+                        <span><i class="fa-solid fa-house"></i></span>
+                        <h3>Home</h3>
+                    </a><br>
+                    {% if user.is_authenticated %}
+                    <a class="menu-item " href="profile">
+                        <span><i class="fa-solid fa-user"></i></span>
+                        <h3>Profile</h3>
+                    </a><br>
+                    <a class="menu-item " href="createpost">
+                        <span><i class="fa-solid fa-plus create"></i></span>
+                        <h3>Create Post</h3>
+                    </a><br>
+                    <a class="menu-item " href="logout">
+                        <span><i class="fa-solid fa-right-from-bracket"></i></span>
+                        <h3>Logout</h3>
+                    </a>
+                    {% else %}
+                    <a class="menu-item " href="login">
+                        <span><i class="fa-solid fa-right-to-bracket"></i></span>
+                        <h3>Login</h3>
+                    </a>
+                    {% endif %}
+                    
+                </div>
+            </div>
+
+
+            <div class="middle">
+                <div class="allpost">
+                    <h1> &nbsp; &nbsp;All Post</h1>
+                </div>
+                <div class="feeds">
+                    {% for post in post %}
+                    <div class="feed">
+                        <div class="head">
+
+                        </div>
+                        <div class="user">
+                            <div class="profile-pic">
+                                {% comment %} <i class="fa-solid fa-user"></i> {% endcomment %}
+                            </div>
+                            <div class="info">
+                                <h3>{{post.user | upper}}</h3>
+                                <small>{{post.date | date:"P M d Y"}}</small>
+                            </div>
+                            <SPAN class="edit"><i class="uil uil-ellipsis-h"></i></SPAN>
+                        </div>
+
+                        <div class="photo">
+                            <img src="{{post.image.url}}" alt="">
+                    
+                        </div>
+
+                        <div class="action-button">
+                            <div class="interaction-button">
+                                <span><i class="uil uil-thumbs-up"></i></span>
+                                <span><i class="uil uil-comment"></i></span>
+                                <span><i class="uil uil-share"></i></span>
+                            </div>
+                            <div class="bookmark">
+                                <span><i class="uil uil-bookmark"></i></span>
+                            </div>
+                        </div>
+
+                        {% comment %} <div class="liked-by">
+                            <span><img src="static/image/profile-15.jpg"></span>
+                            <span><img src="static/image/profile-16.jpg"></span>
+                            <span><img src="static/image/profile-17.jpg"></span>
+                            ,<p>Liked by <b>Enrest Achiever</b>snd <b>220 others</b></p>
+                        </div> {% endcomment %}
+
+                        <div class="caption">
+                            <h3>{{post.text}}</h3>
+                        </div>
+                        <br>
+                        <div class="fb-like" data-href="http://localhost:8000/post" data-width="" data-layout="button_count" data-action="like" data-size="large" data-share="true"></div>
+                        <div class="comments text-muted">View all 130 comments</div>
+                        <div class="fb-comments" data-href="http://localhost:8000/post/{{reqeust.user}}" data-width="" data-numposts="5"></div>
+                    </div>
+
+                    {% endfor %}
+
+                    
+
+                    
+                </div>
+            </div>
+
+
+        </div>
+    </main>
+
+    
+
+
+    
+
+
+
+
+{% endblock %}
+
+{% comment %} {% include 'footer.html' %} {% endcomment %}

@@ -1,0 +1,36 @@
+{% load static %}
+{% include 'header.html' %}
+
+{% block content %}
+
+<link rel="stylesheet" href="static/css/account.css">
+
+<!-- partial:index.partial.html -->
+<div id="login-form-wrap">
+  <h2>Login</h2><br>
+  <form id="login-form" method="post">
+    {% csrf_token %}
+    <p>
+      {{form.username}}
+    </p>
+    <p>
+      {{form.password}}
+    </p>
+    <p>
+      <input type="submit" id="login">
+    </p>
+  </form>
+  <br>
+  <div id="create-account-wrap">
+    <br>
+    <p>Creat Account <a href="signup">Signup</a><p>
+  </div><!--create-account-wrap-->
+</div><!--login-form-wrap-->
+<br>
+<!-- partial -->
+
+
+
+  {% endblock %}
+
+  {% include 'footer.html' %}

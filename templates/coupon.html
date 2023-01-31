@@ -1,0 +1,41 @@
+{% include 'header.html' %}
+{% load static %}
+
+{% block content %}
+
+
+
+<link rel="stylesheet" href="static/css/coupon.css" />
+<!-- <center><button class="get-discount-btn">Get Discount</button></center>  -->
+<div class="body">
+
+  <br><br><br><br><br>
+  <div class="coupon-container">
+    <div class="close">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <!-- <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /> -->
+      </svg>
+    </div>
+
+    <!-- <img class="bg" src="static/images/bg.svg" alt="" /> -->
+
+    <img class="gift" src="static/images/gift.svg" alt="" />
+
+    <h2 id="fail">Congratulations!</h2>
+    <p id="get">You can get</p>
+    <div class="discount" id="percentage"></div>
+    <p id="ans">Here is your code</p>
+    <div class="code" id="code" ></div>
+    <!-- <button onclick="myFunction()">Copy text</button> -->
+    <p>Copy Coupon</p>
+    <br>
+  </div>
+  <div class="button">
+    <a href="event" class="btn">Redeem</a>
+
+  </div>
+
+</div>
+{% endblock %}
+
+<script src="static/js/coupon.js"></script>

@@ -1,0 +1,44 @@
+{% load static %}
+{% include 'header.html' %}
+
+{% block content %}
+
+  
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel="stylesheet" href="static/css/account.css">
+
+
+
+<!-- partial:index.partial.html -->
+<div id="login-form-wrap">
+  <h2>Sign UP</h2><br>
+  <form id="login-form" method="post">
+    {% csrf_token %}
+    <p>
+      {% comment %} <input type="text" id="username" name="username" placeholder="Username" required><i class="validation"><span></span><span></span></i> {% endcomment %}
+      {{form.username}}
+    </p>
+    <p>
+      {{form.email}}
+    </p>
+    <p>
+    {% comment %} <input type="password" id="email" name="email" placeholder="Email Address" required><i class="validation"><span></span><span></span></i> {% endcomment %}
+    {{form.password}}
+    </p>
+    <p>
+    <input type="submit" >
+    </p>
+  </form>
+  <br>
+  <div id="create-account-wrap">
+    <br>
+    <p>Already Have Account -  <a href="login" class="otherpage"> Login</a><p>
+  </div><!--create-account-wrap-->
+</div><!--login-form-wrap-->
+<!-- partial -->
+<br>
+
+
+{% endblock %}
+
+{% include 'footer.html' %}

@@ -1,0 +1,128 @@
+{% load static %}
+{% include 'header.html' %}
+
+{% block content %}
+
+<link rel="stylesheet" href="static/css/post.css" />
+
+
+<body>
+
+    <main>
+        <div class="p-container">
+            <div class="left">
+                <a class="profile">
+                    {% if user.is_authenticated %}
+                    <div class="handle">
+                        <br>
+                        <h4>{{request.user}}</h4>
+                        <br>
+                    </div>
+                    {% else %}
+                    <div class="handle">
+                        <h4></h4>
+                        <p class="text-muted"></p>
+                    </div>
+                    {% endif %}
+                </a>
+                <div class="sidebar">
+                    <a class="menu-item " href="post">
+                        <span><i class="fa-solid fa-house"></i></span>
+                        <h3>Home</h3>
+                    </a><br>
+                    {% if user.is_authenticated %}
+                    <a class="menu-item " href="profile">
+                        <span><i class="fa-solid fa-user"></i></span>
+                        <h3>Profile</h3>
+                    </a><br>
+                    <a class="menu-item " href="createpost">
+                        <span><i class="fa-solid fa-plus create"></i></span>
+                        <h3>Create Post</h3>
+                    </a><br>
+                    <a class="menu-item " href="logout">
+                        <span><i class="fa-solid fa-right-from-bracket"></i></span>
+                        <h3>Logout</h3>
+                    </a>
+                    {% else %}
+                    <a class="menu-item " href="login">
+                        <span><i class="fa-solid fa-plus create"></i></span>
+                        <h3>Create Post</h3>
+                    </a>
+                    {% endif %}
+                    
+                </div>
+            </div>
+            
+            
+            <div class="middle">
+                
+                <div class="feeds">
+                    
+                    {% for p in profile %}
+                    <div class="feed">
+                        <div class="head">
+                        </div>
+                        <div class="user">
+                            <div class="profile-pic">
+                                {% comment %} <i class="fa-solid fa-user"></i> {% endcomment %}
+                            </div>
+                            <div class="info">
+                                <h3>{{p.user}}</h3>
+                                <small>{{p.date | date:"P M d Y"}}</small>
+                            </div>
+                            <SPAN class="edit"><i class="uil uil-ellipsis-h"></i></SPAN>
+                        </div>
+
+                        <div class="photo">
+                            <img src="{{p.image.url}}" alt="">
+                    
+                        </div>
+
+                        <div class="action-button">
+                            <div class="interaction-button">
+                                <span><i class="uil uil-thumbs-up"></i></span>
+                                <span><i class="uil uil-comment"></i></span>
+                                <span><i class="uil uil-share"></i></span>
+                            </div>
+                            <div class="bookmark">
+                                <span><i class="uil uil-bookmark"></i></span>
+                            </div>
+                        </div>
+
+                        <div class="liked-by">
+                            <span><img src="static/image/profile-15.jpg"></span>
+                            <span><img src="static/image/profile-16.jpg"></span>
+                            <span><img src="static/image/profile-17.jpg"></span>
+                            ,<p>Liked by <b>Enrest Achiever</b>snd <b>220 others</b></p>
+                        </div>
+
+                        <div class="caption">
+                            <h3>{{p.text}}</h3>
+                        </div>
+                        <div class="comments text-muted">View all 130 comments</div>
+                    </div>
+
+                    {% endfor %}
+
+                    
+
+                    
+                </div>
+            </div>
+
+
+        </div>
+    </main>
+
+    
+    
+</body>
+
+    
+
+
+
+
+{% endblock %}
+
+{% comment %} {% include 'footer.html' %} {% endcomment %}

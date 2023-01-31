@@ -1,0 +1,118 @@
+{% include 'header.html' %}
+{% load static %}
+
+<head>
+    <link rel="stylesheet" href="static/css/event.css">
+    <link rel="stylesheet" href="static/css/button.css"> 
+</head>
+
+<body>
+
+    <!-- performar_area_start  -->
+    <div class="performar_area black_bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section_title mb-80">
+                        <h3 class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".3s">Events</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="row">
+
+                        {% for event in event %}
+                        <div class="col-lg-6 col-md-6">
+                            <div  class="single_performer wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">
+                                <div data-tilt class="thumb">
+                                    <img src="{{event.image}}" alt="">
+                                </div>
+                                <div class="performer_heading">
+                                    <h4>{{event.name}}</h4>
+                                    <span>{{event.place}}</span> &nbsp; &nbsp; &nbsp;
+                                    <br>
+                                    <br> 
+                                    {% if user.is_authenticated %}
+                                    <a class="animated-button1" href="eventbooking"><span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        Book Event</a>
+                                    {% else %}
+                                    <a class="animated-button1" href="loginevent"><span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        Book Event</a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- performar_area_end  -->
+
+    <!-- about_area_start  -->
+    <div class="about_area black_bg">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="section_title text-center mb-80">
+                        <h3 class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".3s" >About Program</h3>
+                        <p class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".4s" >The Delhi Republic Day parade is the largest and most important of the parades marking the Republic Day celebrations in India. The parade takes place every year on 26 January at Rajpath, New Delhi. It is the main attraction of India's Republic Day celebrations, which last for three days</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-lg-7 col-md-6">
+                    <div class="about_thumb">
+                        <div class="thumb_inner  wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">
+                            <img src="static/images/flag.gif" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 col-md-6">
+                    <div class="about_info pl-68">
+                        <h4 class=" wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".5s">It’s time to book your seat</h4>
+                        <p  class=" wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".6s">On Republic Day, flag hoisting ceremonies and parades by armed forces and school children are held in different parts of the country. The grandest and most important of these parades is held at Rajpath in New Delhi, which showcases a multi-hued image of the country's rich cultural heritage and military prowess.</p>
+                        <a href="eventbooking" class="boxed-btn3  wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".7s">Buy Tickets</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- about_area_end  -->
+
+    {% include 'footer.html' %}
+
+    <script src="static/js/event.js"></script>
+
+    <script src="static/js/event/vendor/modernizr-3.5.0.min.js"></script>
+    <script src="static/js/event/vendor/jquery-1.12.4.min.js"></script>
+    <script src="static/js/event/popper.min.js"></script>
+    <script src="static/js/event/bootstrap.min.js"></script>
+    <script src="static/js/event/owl.carousel.min.js"></script>
+    <script src="static/js/event/isotope.pkgd.min.js"></script>
+    <script src="static/js/event/ajax-form.js"></script>
+    <script src="static/js/event/waypoints.min.js"></script>
+    <script src="static/js/event/jquery.counterup.min.js"></script>
+    <script src="static/js/event/imagesloaded.pkgd.min.js"></script>
+    <script src="static/js/event/scrollIt.js"></script>
+    <script src="static/js/event/jquery.scrollUp.min.js"></script>
+    <script src="static/js/event/wow.min.js"></script>
+    <script src="static/js/event/gijgo.min.js"></script>
+    <script src="static/js/event/nice-select.min.js"></script>
+    <script src="static/js/event/jquery.slicknav.min.js"></script>
+    <script src="static/js/event/jquery.magnific-popup.min.js"></script>
+    <script src="static/js/event/tilt.jquery.js"></script>
+    <script src="static/js/event/plugins.js"></script>
+    static/
+</event/body>
+
+</html>
